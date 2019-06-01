@@ -1,20 +1,25 @@
 package org.prezydium.factory;
 
-public class Person {
+public class SecurePerson {
+
     private int id;
     private String name;
+    private static int personCounter;
 
-    public Person(int id, String name) {
+    private SecurePerson(int id, String name) {
         this.id = id;
         this.name = name;
     }
 
+    public static SecurePerson createSecurePerson(String name){
+        return new SecurePerson(personCounter++, name);
+    }
+
     @Override
     public String toString() {
-        return "Person{" +
+        return "SecurePerson{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
     }
 }
-
