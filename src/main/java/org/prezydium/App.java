@@ -6,17 +6,18 @@ import org.prezydium.factory.Person;
 import org.prezydium.factory.PersonFactory;
 import org.prezydium.factory.SecurePerson;
 import org.prezydium.prototype.Line;
-
-import java.util.List;
+import org.prezydium.singleton.SimpleSingleton;
+import org.prezydium.singleton.SingletonTester;
 
 public class App {
     public static void main(String[] args) {
         firstExercise();
         secondExercise();
         thirdExercise();
+        fourthExercise();
     }
 
-    private static void firstExercise(){
+    private static void firstExercise() {
         String classPerson = new CodeBuilder("Person")
                 .addField("name", "String")
                 .addField("age", "int")
@@ -24,7 +25,7 @@ public class App {
         System.out.println(classPerson);
     }
 
-    private static void secondExercise(){
+    private static void secondExercise() {
         System.out.println(new Person(33, "Zbigniev"));
         System.out.println(new PersonFactory().createPerson("Anna"));
         System.out.println(new PersonFactory().createPerson("Pearl"));
@@ -39,6 +40,10 @@ public class App {
         System.out.println(line1);
         System.out.println(line2);
         System.out.println(line1.equals(line2));
+    }
 
+    private static void fourthExercise() {
+        System.out.println("Object is singleton: " +
+                SingletonTester.isSingleton(SimpleSingleton::getInstance));
     }
 }
