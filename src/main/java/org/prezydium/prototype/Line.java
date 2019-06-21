@@ -1,5 +1,7 @@
 package org.prezydium.prototype;
 
+import java.util.Objects;
+
 public class Line {
 
     private Point start, end;
@@ -31,6 +33,20 @@ public class Line {
                     ", y=" + y +
                     '}';
         }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Point point = (Point) o;
+            return x == point.x &&
+                    y == point.y;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(x, y);
+        }
     }
 
     @Override
@@ -39,5 +55,19 @@ public class Line {
                 "start=" + start +
                 ", end=" + end +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Line line = (Line) o;
+        return Objects.equals(start, line.start) &&
+                Objects.equals(end, line.end);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(start, end);
     }
 }
