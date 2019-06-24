@@ -3,28 +3,23 @@ package org.prezydium.decorator;
 public class DecoratorTask {
 }
 
-class Bird
-{
+class Bird {
     public int age;
 
-    public String fly()
-    {
+    public String fly() {
         return age < 10 ? "flying" : "too old";
     }
 }
 
-class Lizard
-{
+class Lizard {
     public int age;
 
-    public String crawl()
-    {
+    public String crawl() {
         return (age > 1) ? "crawling" : "too young";
     }
 }
 
-class Dragon
-{
+class Dragon {
     private int age;
 
     private Bird bird;
